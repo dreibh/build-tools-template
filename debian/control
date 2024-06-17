@@ -1,0 +1,40 @@
+Source: td-build-tools-template
+Section: utils
+Priority: optional
+Maintainer: Thomas Dreibholz <thomas.dreibholz@gmail.com>
+Homepage: https://www.nntb.no/~dreibh/build-tools-template/
+Build-Depends: cmake,
+               debhelper (>= 13)
+Standards-Version: 4.7.0
+Rules-Requires-Root: no
+
+Package: libexample-dev
+Section: libdevel
+Architecture: any
+Depends: libexample0 (= ${binary:Version}),
+         ${misc:Depends}
+Description: Development files for example library
+ This is a simple example library to be build and packaged by
+ Build Tool.
+ .
+ This package provides header files for the library.
+
+Package: libexample0
+Section: libs
+Architecture: any
+Depends: ${misc:Depends},
+         ${shlibs:Depends}
+Description: Example library
+ This is a simple example library to be build and packaged by
+ Build Tool.
+ .
+ The example library is provided by this package.
+
+Package: td-build-tools-example
+Architecture: any
+Depends: libexample0 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Build tools example
+ This is a simple example program to be build and packaged by
+ Build Tool.

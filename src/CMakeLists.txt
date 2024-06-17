@@ -1,33 +1,20 @@
-#  =================================================================
-#           #     #                 #     #
-#           ##    #   ####   #####  ##    #  ######   #####
-#           # #   #  #    #  #    # # #   #  #          #
-#           #  #  #  #    #  #    # #  #  #  #####      #
-#           #   # #  #    #  #####  #   # #  #          #
-#           #    ##  #    #  #   #  #    ##  #          #
-#           #     #   ####   #    # #     #  ######     #
+# Build Tools Template
+# Copyright (C) 2024 by Thomas Dreibholz
 #
-#        ---   The NorNet Testbed for Multi-Homed Systems  ---
-#                        https://www.nntb.no
-#  =================================================================
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
 #
-#  High-Performance Connectivity Tracer (HiPerConTracer)
-#  Copyright (C) 2015-2024 by Thomas Dreibholz
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
 #
-#  This program is free software: you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License as published by
-#  the Free Software Foundation, either version 3 of the License, or
-#  (at your option) any later version.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-#  This program is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-#
-#  You should have received a copy of the GNU General Public License
-#  along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-#  Contact: dreibh@simula.no
+# Contact: dreibh@simula.no
 
 #############################################################################
 #### VERSION FILE                                                        ####
@@ -67,7 +54,7 @@ FOREACH(TYPE shared;static)
          VERSION   ${BUILD_VERSION}
          SOVERSION ${BUILD_MAJOR}
       )
-      TARGET_LINK_LIBRARIES (liblibrary-${TYPE} ${Boost_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} ${LZMA_LIBRARY} ${BZ2_LIBRARY} ${Z_LIBRARY})
+      # TARGET_LINK_LIBRARIES (liblibrary-${TYPE} ...)
       INSTALL(TARGETS liblibrary-${TYPE} DESTINATION ${CMAKE_INSTALL_LIBDIR})
    ENDIF()
 ENDFOREACH()
@@ -95,4 +82,4 @@ INSTALL(FILES example.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1)
 #############################################################################
 
 INSTALL(FILES example.txt
-        DESTINATION ${CMAKE_INSTALL_DATADIR}/doc/example/examples)
+        DESTINATION ${CMAKE_INSTALL_DATADIR}/doc/build-tools-template/examples)
