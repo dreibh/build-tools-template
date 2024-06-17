@@ -5,7 +5,7 @@
 // ###### Set ANSI color in terminal ########################################
 void setColor(std::ostream& os, unsigned int r, unsigned int g, unsigned int b)
 {
-   os << "\x1b[38;2;"
+   os << "\x1b[38;2;" << std::dec
       << r << ";" << g << ";" << b << "m";
 }
 
