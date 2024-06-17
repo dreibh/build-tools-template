@@ -33,9 +33,9 @@ This is a simple example program to be build and packaged by Build Tool.
 %cmake_install
 
 %files
-%{_bindir}example
+%{_bindir}/example
 %{_mandir}/man1/example.1.gz
-%{_datadir}/doc/td-build-tools-template/examples/example.txt
+%{_datadir}/doc/build-tools-template/examples/example.txt
 
 
 %package libexample
@@ -69,3 +69,5 @@ This package provides header files for the library.
 
 
 %changelog
+* Mon Jun 17 2024 Thomas Dreibholz <dreibh@simula.no> - 0.0.0~alpha0
+- Created RPM package.
