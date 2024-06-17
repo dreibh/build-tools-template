@@ -8,17 +8,6 @@ Build-Depends: cmake,
 Standards-Version: 4.7.0
 Rules-Requires-Root: no
 
-Package: libexample-dev
-Section: libdevel
-Architecture: any
-Depends: libexample0 (= ${binary:Version}),
-         ${misc:Depends}
-Description: Development files for example library
- This is a simple example library to be build and packaged by
- Build Tool.
- .
- This package provides header files for the library.
-
 Package: libexample0
 Section: libs
 Architecture: any
@@ -29,6 +18,17 @@ Description: Example library
  Build Tool.
  .
  The example library is provided by this package.
+
+Package: libexample-dev
+Section: libdevel
+Architecture: any
+Depends: libexample0 (= ${binary:Version}),
+         ${misc:Depends}
+Description: Development files for example library
+ This is a simple example library to be build and packaged by
+ Build Tool.
+ .
+ This package provides header files for the library.
 
 Package: td-build-tools-example
 Architecture: any
