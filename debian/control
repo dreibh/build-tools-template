@@ -49,9 +49,9 @@ Description: Build tools example scripts
  These are simple example scripts and files to be build and packaged by
  Build Tool.
 
-Package: td-build-tools-examples
+Package: td-build-tools-template
 Architecture: all
 Depends: ${misc:Depends}
-Description: Build tools examples metapackage
+Description: Build tools template metapackage
  This is a metapackage to install the simple example programs,
  scripts, and files packaged by Build Tool.

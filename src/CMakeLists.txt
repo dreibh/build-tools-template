@@ -71,7 +71,6 @@ ENDIF()
 
 # ====== Example Program 1 ==================================================
 ADD_EXECUTABLE(example-program1 example-program1.c)
-TARGET_LINK_LIBRARIES(example-program1 libexamplelibrary-${libraryType})
 INSTALL(TARGETS example-program1 RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 INSTALL(FILES example-program1.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1)
 

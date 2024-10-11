@@ -29,7 +29,8 @@ FILE(GLOB sources "*.sources")
 # ====== Find all text domains ==============================================
 FOREACH(source IN LISTS sources)
    # The .sources file lists the source files for each text domain:
-   STRING(REGEX REPLACE ".sources" ".pot" potFile "${source}")
+   GET_FILENAME_COMPONENT(potFile "${source}" NAME_WE)
+   SET(potFile "${CMAKE_CURRENT_BINARY_DIR}/${potFile}.pot")
    GET_FILENAME_COMPONENT(textdomain "${source}" NAME_WE)
 
 
@@ -37,15 +38,24 @@ FOREACH(source IN LISTS sources)
    FILE(READ "${source}" potInputFiles)
    STRING(REGEX REPLACE "\n" ";" potInputFiles "${potInputFiles}")
    SET(LIST potInputFilesAbsolute "")
+   SET(potSourceLanguageOption "--language=Shell")   # Assume Shell scripts
    FOREACH(file ${potInputFiles})
+      GET_FILENAME_COMPONENT(sourceExtension ${file} EXT)
+      # Source is C/C++ -> remove --language=Shell option!
+      IF ( ("${sourceExtension}" STREQUAL ".c")  OR
+           ("${sourceExtension}" STREQUAL ".h")  OR
+           ("${sourceExtension}" STREQUAL ".cc") OR
+           ("${sourceExtension}" STREQUAL ".cpp") )
+         SET(potSourceLanguageOption "")
+      ENDIF()
       LIST(APPEND potInputFilesAbsolute ${potInputFilesAbsolute} "${PROJECT_SOURCE_DIR}/${file}")
    ENDFOREACH()
 
    MESSAGE("Translation template: ${textdomain} (${potInputFiles} -> ${potFile})")
    ADD_CUSTOM_COMMAND(OUTPUT "${potFile}"
                       COMMAND "${XGETTEXT}"
-                         --language Shell
-                         --from-code utf-8
+                         ${potSourceLanguageOption}
+                         --from-code=utf-8
                          --default-domain="${textdomain}"
                          --package-name="${PROJECT_NAME}"
                          --package-version="${BUILD_VERSION}"
@@ -69,7 +79,7 @@ FOREACH(source IN LISTS sources)
       # ====== Update PO file (translation) =================================
       GET_FILENAME_COMPONENT(languageDirectory "${poFile}" DIRECTORY)
       GET_FILENAME_COMPONENT(language "${languageDirectory}" NAME "${CMAKE_CURRENT_SOURCE_DIR}")
-      SET(poStampFile "${languageDirectory}/.${textdomain}.po.stamp")
+      SET(poStampFile "${CMAKE_CURRENT_BINARY_DIR}/${language}/.${textdomain}.po.stamp")
 
       MESSAGE("Translation update: ${textdomain}, ${language} (${potFile} -> ${poFile})")
       # The .po file cannot be OUTPUT, since "make clean" would then delete it
@@ -85,8 +95,8 @@ FOREACH(source IN LISTS sources)
 
 
       # ====== Compile PO file to MO file ===================================
-      FILE(MAKE_DIRECTORY "${languageDirectory}/LC_MESSAGES")
-      SET(moFile "${languageDirectory}/LC_MESSAGES/${textdomain}.mo")
+      FILE(MAKE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/${language}/LC_MESSAGES")
+      SET(moFile "${CMAKE_CURRENT_BINARY_DIR}/${language}/LC_MESSAGES/${textdomain}.mo")
 
       MESSAGE("Compiling translation: ${textdomain}, ${language} (${poFile} -> ${moFile})")
       ADD_CUSTOM_COMMAND(OUTPUT "${moFile}"
