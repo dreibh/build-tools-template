@@ -81,10 +81,20 @@ TARGET_LINK_LIBRARIES(example-program2 libexamplelibrary-${libraryType})
 INSTALL(TARGETS example-program2 RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 INSTALL(FILES example-program2.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1)
 
+# ====== Example Script 1 ===================================================
+INSTALL(PROGRAMS example-script1 DESTINATION ${CMAKE_INSTALL_BINDIR})
+INSTALL(FILES example-script1.1  DESTINATION ${CMAKE_INSTALL_MANDIR}/man1)
+
+# ====== Example Script 2 ===================================================
+INSTALL(PROGRAMS example-script2 DESTINATION ${CMAKE_INSTALL_BINDIR})
+INSTALL(FILES example-script2.1  DESTINATION ${CMAKE_INSTALL_MANDIR}/man1)
+
 
 #############################################################################
 #### EXAMPLES                                                            ####
 #############################################################################
 
-INSTALL(FILES example-file.txt
+INSTALL(FILES
+           example-file1.txt
+           example-file2.jpeg
         DESTINATION ${CMAKE_INSTALL_DATADIR}/doc/build-tools-template/examples)

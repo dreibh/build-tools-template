@@ -1,1 +1,5 @@
-Tests: simple-test
+Tests: 10-test-example-programs
+Depends: td-build-tools-example-programs
+
+Tests: 20-test-example-scripts
+Depends: td-build-tools-example-scripts

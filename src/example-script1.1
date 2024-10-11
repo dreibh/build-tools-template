@@ -1,4 +1,4 @@
-.\" Build Tool Template Example Program
+.\" Build Tool Example Script
 .\" Copyright (C) 2024 by Thomas Dreibholz
 .\"
 .\" This program is free software: you can redistribute it and/or modify
@@ -18,34 +18,32 @@
 .\"
 .\" ###### Setup ############################################################
 .Dd October 11, 2024
-.Dt example-program2 1
-.Os example-program2
+.Dt example-script1 1
+.Os example-script1
 .\" ###### Name #############################################################
 .Sh NAME
-.Nm example-program2
-.Nd An example program
+.Nm example-script1
+.Nd An example script
 .\" ###### Synopsis #########################################################
 .Sh SYNOPSIS
-.Nm example-program2
+.Nm example-script1
 .Op Fl Fl version | Fl v
 .\" ###### Description ######################################################
 .Sh DESCRIPTION
-This is a simple example program, written in C++ together with an example
-library. It supports i18n with gettext.
+This is a simple example program, written in Bash shell script.
+It supports i18n with gettext.
 .Pp
-.\" ###### Arguments ########################################################
-.Sh ARGUMENTS
-The following options are available:
-.Bl -tag -width indent
-.It Fl Fl version | Fl v
-Just prints package version and exists.
-.El
+.\" .\" ###### Arguments ########################################################
+.\" .Sh ARGUMENTS
+.\" The following options are available:
+.\" .Bl -tag -width indent
+.\" .It Fl Fl version | Fl v
+.\" Just prints package version and exists.
+.\" .El
 .\" ###### Examples #########################################################
 .Sh EXAMPLES
 .Bl -tag -width indent
-.It example-program2
-.It LC_ALL=de_DE.UTF-8 example-program2
-.It LC_ALL=nb_NO.UTF-8 example-program2
-.It example-program2 --version
-.It example-program2 -v
+.It example-script1
+.It LC_ALL=de_DE.UTF-8 example-script1
+.It LC_ALL=nb_NO.UTF-8 example-script1
 .El

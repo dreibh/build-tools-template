@@ -1,4 +1,4 @@
-// Build Tool Example
+// Build Tool Template Example Program
 // Copyright (C) 2024 by Thomas Dreibholz
 //
 // This program is free software: you can redistribute it and/or modify

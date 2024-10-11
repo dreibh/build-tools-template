@@ -31,11 +31,27 @@ Description: Development files for example library
  .
  This package provides header files for the library.
 
-Package: td-build-tools-examples
+Package: td-build-tools-example-programs
 Architecture: any
 Depends: libexamplelibrary0 (= ${binary:Version}),
          ${misc:Depends},
          ${shlibs:Depends}
-Description: Build tools examples
+Description: Build tools example programs
  These are simple example programs and files to be build and packaged by
  Build Tool.
+
+Package: td-build-tools-example-scripts
+Architecture: all
+Depends: gettext-base,
+         python3,
+         ${misc:Depends}
+Description: Build tools example scripts
+ These are simple example scripts and files to be build and packaged by
+ Build Tool.
+
+Package: td-build-tools-examples
+Architecture: all
+Depends: ${misc:Depends}
+Description: Build tools examples metapackage
+ This is a metapackage to install the simple example programs,
+ scripts, and files packaged by Build Tool.
