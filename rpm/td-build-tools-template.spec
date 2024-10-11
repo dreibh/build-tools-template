@@ -2,8 +2,8 @@ Name: td-build-tools-template
 Version: 0.0.0~alpha1
 Release: 1
 Summary: Build tools example
-Group: Applications/Internet
-License: GPL-3+
+Group: Applications/System
+License: GPL-3.0-or-later
 URL: https://www.nntb.no/~dreibh/td-build-tools-template/
 Source: https://www.nntb.no/~dreibh/td-build-tools-template/download/%{name}-%{version}.tar.xz
 
@@ -14,8 +14,11 @@ BuildRequires: gcc-c++
 BuildRequires: gettext
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
 
-
 Requires: %{name}-libexamplelibrary = %{version}-%{release}
+Requires: %{name}-libexamplelibrary-devel = %{version}-%{release}
+Requires: %{name}-example-programs = %{version}-%{release}
+Requires: %{name}-example-scripts = %{version}-%{release}
+
 
 %description
 This is a simple example program to be build and packaged by Build Tool.
@@ -29,13 +32,6 @@ This is a simple example program to be build and packaged by Build Tool.
 
 %install
 %cmake_install
-
-%files
-%{_bindir}/example-program1
-%{_bindir}/example-program2
-%{_mandir}/man1/example-program1.1.gz
-%{_mandir}/man1/example-program2.1.gz
-%{_datadir}/doc/build-tools-template/examples/example.txt
 
 
 %package libexamplelibrary
@@ -66,6 +62,38 @@ This package provides header files for the library.
 %{_includedir}/example/library.h
 %{_libdir}/libexamplelibrary*.so
 %{_libdir}/libexamplelibrary.a
+
+
+%package example-programs
+Summary: Example library
+Requires: %{name}-libexamplelibrary = %{version}-%{release}
+
+%description example-programs
+These are simple example programs and files to be build and packaged by
+Build Tool.
+
+%files example-programs
+%{_bindir}/example-program1
+%{_bindir}/example-program2
+%{_mandir}/man1/example-program1.1.gz
+%{_mandir}/man1/example-program2.1.gz
+%{_datadir}/doc/build-tools-template/examples/example-file1.txt
+
+
+%package example-scripts
+Summary: Example library
+Requires: %{name}-libexamplelibrary = %{version}-%{release}
+
+%description example-scripts
+These are simple example scripts and files to be build and packaged by
+Build Tool.
+
+%files example-scripts
+%{_bindir}/example-script1
+%{_bindir}/example-script2
+%{_mandir}/man1/example-script1.1.gz
+%{_mandir}/man1/example-script2.1.gz
+%{_datadir}/doc/build-tools-template/examples/example-file2.jpeg
 
 
 %changelog
