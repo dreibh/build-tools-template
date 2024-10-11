@@ -49,11 +49,10 @@ ENDIF()
 FOREACH(TYPE shared;static)
    IF ( (("${TYPE}" STREQUAL "static") AND (WITH_STATIC_LIBRARIES)) OR
         (("${TYPE}" STREQUAL "shared") AND (WITH_SHARED_LIBRARIES)) )
-      SET_TARGET_PROPERTIES(libexamplelibrary-${TYPE} PROPERTIES OUTPUT_NAME example CLEAN_DIRECT_OUTPUT 1)
       SET_TARGET_PROPERTIES(libexamplelibrary-${TYPE} PROPERTIES
-         VERSION   ${BUILD_VERSION}
-         SOVERSION ${BUILD_MAJOR}
-      )
+         OUTPUT_NAME examplelibrary
+         VERSION     ${BUILD_VERSION}
+         SOVERSION   ${BUILD_MAJOR})
       # TARGET_LINK_LIBRARIES (libexamplelibrary-${TYPE} ...)
       INSTALL(TARGETS libexamplelibrary-${TYPE} DESTINATION ${CMAKE_INSTALL_LIBDIR})
    ENDIF()

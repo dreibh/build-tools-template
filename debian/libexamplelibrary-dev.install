@@ -1,0 +1,3 @@
+usr/include/example/example-library.h
+usr/lib/*/libexamplelibrary*.so
+usr/lib/*/libexamplelibrary.a

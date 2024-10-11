@@ -16,6 +16,8 @@
 //
 // Contact: thomas.dreibholz@gmail.com
 
+#include <stdlib.h>
+
 #include <iomanip>
 #include <iostream>
 
@@ -32,4 +34,12 @@ void setColor(std::ostream& os, unsigned int r, unsigned int g, unsigned int b)
 void resetColor(std::ostream& os)
 {
     os << "\e[0m";
+}
+
+
+// ###### Reset ANSI color in terminal ######################################
+void abortWithError(const char* message)
+{
+   std::cerr << message << "\n";
+   abort();
 }

@@ -1,0 +1,5 @@
+libexamplelibrary.so.0 libexamplelibrary0 #MINVER#
+* Build-Depends-Package: libexamplelibrary-dev
+ _Z10resetColorRSo@Base 0.0.0~alpha1
+ _Z14abortWithErrorPKc@Base 0.0.0~alpha1
+ _Z8setColorRSojjj@Base 0.0.0~alpha1

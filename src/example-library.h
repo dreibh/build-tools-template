@@ -23,5 +23,6 @@
 
 void setColor(std::ostream& os, unsigned int r, unsigned int g, unsigned int b);
 void resetColor(std::ostream& os);
+void abortWithError(const char* message);
 
 #endif
