@@ -1,5 +1,5 @@
 Name: td-build-tools-template
-Version: 0.0.0~alpha0
+Version: 0.0.0~alpha1
 Release: 1
 Summary: Build tools example
 Group: Applications/Internet
