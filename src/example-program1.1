@@ -1,0 +1,51 @@
+.\" Build Tool Example Program
+.\" Copyright (C) 2024 by Thomas Dreibholz
+.\"
+.\" This program is free software: you can redistribute it and/or modify
+.\" it under the terms of the GNU General Public License as published by
+.\" the Free Software Foundation, either version 3 of the License, or
+.\" (at your option) any later version.
+.\"
+.\" This program is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\"
+.\" You should have received a copy of the GNU General Public License
+.\" along with this program.  If not, see <http://www.gnu.org/licenses/>.
+.\"
+.\" Contact: dreibh@simula.no
+.\"
+.\" ###### Setup ############################################################
+.Dd October 11, 2024
+.Dt example-program1 1
+.Os example-program1
+.\" ###### Name #############################################################
+.Sh NAME
+.Nm example-program1
+.Nd An example-program1 program
+.\" ###### Synopsis #########################################################
+.Sh SYNOPSIS
+.Nm example-program1
+.Op Fl Fl version | Fl v
+.\" ###### Description ######################################################
+.Sh DESCRIPTION
+This is a simple example program, written in C.
+It supports i18n with gettext.
+.Pp
+.\" ###### Arguments ########################################################
+.Sh ARGUMENTS
+The following options are available:
+.Bl -tag -width indent
+.It Fl Fl version | Fl v
+Just prints package version and exists.
+.El
+.\" ###### Examples #########################################################
+.Sh EXAMPLES
+.Bl -tag -width indent
+.It example-program1
+.It LC_ALL=de_DE.UTF-8 example-program1
+.It LC_ALL=nb_NO.UTF-8 example-program1
+.It example-program1 --version
+.It example-program1 -v
+.El

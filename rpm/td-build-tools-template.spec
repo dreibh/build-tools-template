@@ -11,11 +11,11 @@ AutoReqProv: on
 BuildRequires: cmake
 BuildRequires: gcc
 BuildRequires: gcc-c++
+BuildRequires: gettext
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
 
-# TEST ONLY:
-# define _unpackaged_files_terminate_build 0
 
+Requires: %{name}-libexamplelibrary = %{version}-%{release}
 
 %description
 This is a simple example program to be build and packaged by Build Tool.
@@ -24,8 +24,6 @@ This is a simple example program to be build and packaged by Build Tool.
 %setup -q
 
 %build
-# NOTE: CMAKE_VERBOSE_MAKEFILE=OFF for reduced log output!
-# NOTE: ENABLE_BACKEND_MARIADB=OFF, since mysql-connector-c++ is not provided by Fedora.
 %cmake -DCMAKE_INSTALL_PREFIX=/usr -DWITH_STATIC_LIBRARIES=ON -DWITH_SHARED_LIBRARIES=ON
 %cmake_build
 
@@ -33,39 +31,41 @@ This is a simple example program to be build and packaged by Build Tool.
 %cmake_install
 
 %files
-%{_bindir}/example
-%{_mandir}/man1/example.1.gz
+%{_bindir}/example-program1
+%{_bindir}/example-program2
+%{_mandir}/man1/example-program1.1.gz
+%{_mandir}/man1/example-program2.1.gz
 %{_datadir}/doc/build-tools-template/examples/example.txt
 
 
-%package libexample
+%package libexamplelibrary
 Summary: Example library
 Group: System Environment/Libraries
-Requires: %{name}-libexample = %{version}-%{release}
+Requires: %{name}-libexamplelibrary = %{version}-%{release}
 
-%description libexample
+%description libexamplelibrary
 This is a simple example library to be build and packaged by
 Build Tool.
 The example library is provided by this package.
 
-%files libexample
-%{_libdir}/libexample.so.*
+%files libexamplelibrary
+%{_libdir}/libexamplelibrary.so.*
 
 
-%package libexample-devel
+%package libexamplelibrary-devel
 Summary: Development files for example library
 Group: Development/Libraries
-Requires: %{name}-libexample = %{version}-%{release}
+Requires: %{name}-libexamplelibrary = %{version}-%{release}
 
-%description libexample-devel
+%description libexamplelibrary-devel
 This is a simple example library to be build and packaged by
 Build Tool.
 This package provides header files for the library.
 
-%files libexample-devel
+%files libexamplelibrary-devel
 %{_includedir}/example/library.h
-%{_libdir}/libexample*.so
-%{_libdir}/libexample.a
+%{_libdir}/libexamplelibrary*.so
+%{_libdir}/libexamplelibrary.a
 
 
 %changelog

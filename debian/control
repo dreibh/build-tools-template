@@ -4,7 +4,8 @@ Priority: optional
 Maintainer: Thomas Dreibholz <thomas.dreibholz@gmail.com>
 Homepage: https://www.nntb.no/~dreibh/build-tools-template/
 Build-Depends: cmake,
-               debhelper (>= 13)
+               debhelper (>= 12),
+               gettext
 Standards-Version: 4.7.0
 Rules-Requires-Root: no
 
@@ -30,11 +31,11 @@ Description: Development files for example library
  .
  This package provides header files for the library.
 
-Package: td-build-tools-example
+Package: td-build-tools-examples
 Architecture: any
 Depends: libexample0 (= ${binary:Version}),
          ${misc:Depends},
          ${shlibs:Depends}
-Description: Build tools example
- This is a simple example program to be build and packaged by
+Description: Build tools examples
+ These are simple example programs and files to be build and packaged by
  Build Tool.

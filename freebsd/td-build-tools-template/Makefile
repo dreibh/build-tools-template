@@ -12,7 +12,7 @@ LICENSE_FILE=	${WRKSRC}/COPYING
 
 RUN_DEPENDS=
 
-USES=		cmake tar:xz
+USES=		cmake gettext tar:xz
 CMAKE_ARGS=	-DCMAKE_INSTALL_MANDIR=${PREFIX}/share/man
 
 .include <bsd.port.mk>

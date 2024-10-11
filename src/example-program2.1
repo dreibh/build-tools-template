@@ -1,4 +1,4 @@
-.\" Build Tool Example
+.\" Build Tool Template Example Program
 .\" Copyright (C) 2024 by Thomas Dreibholz
 .\"
 .\" This program is free software: you can redistribute it and/or modify
@@ -17,33 +17,35 @@
 .\" Contact: dreibh@simula.no
 .\"
 .\" ###### Setup ############################################################
-.Dd June 17, 2024
-.Dt example 1
-.Os example
+.Dd October 11, 2024
+.Dt example-program2 1
+.Os example-program2
 .\" ###### Name #############################################################
 .Sh NAME
-.Nm example
-.Nd An example program
+.Nm example-program2
+.Nd An example-program2 program
 .\" ###### Synopsis #########################################################
 .Sh SYNOPSIS
-.Nm example
-.Op Fl \-version|\-v
+.Nm example-program2
+.Op Fl Fl version | Fl v
 .\" ###### Description ######################################################
 .Sh DESCRIPTION
 This is a simple example program, written in C++ together with an example
-library.
+library. It supports i18n with gettext.
 .Pp
 .\" ###### Arguments ########################################################
 .Sh ARGUMENTS
 The following options are available:
 .Bl -tag -width indent
-.It  \-\-version|\-v
+.It Fl Fl version | Fl v
 Just prints package version and exists.
 .El
 .\" ###### Examples #########################################################
 .Sh EXAMPLES
 .Bl -tag -width indent
-.It example
-.It example --version
-.It example -v
+.It example-program2
+.It LC_ALL=de_DE.UTF-8 example-program2
+.It LC_ALL=nb_NO.UTF-8 example-program2
+.It example-program2 --version
+.It example-program2 -v
 .El

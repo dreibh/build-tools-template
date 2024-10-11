@@ -30,32 +30,32 @@ CONFIGURE_FILE (
 #### LIBRARIES                                                           ####
 #############################################################################
 
-# ====== liblibrary =========================================================
-LIST(APPEND liblibrary_headers
-   library.h
+# ====== libexamplelibrary =========================================================
+LIST(APPEND libexamplelibrary_headers
+   example-library.h
 )
-LIST(APPEND liblibrary_sources
-   library.cc
+LIST(APPEND libexamplelibrary_sources
+   example-library.cc
 )
 
-INSTALL(FILES ${liblibrary_headers} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/example)
+INSTALL(FILES ${libexamplelibrary_headers} DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/example)
 
 IF (WITH_STATIC_LIBRARIES)
-   ADD_LIBRARY(liblibrary-static STATIC ${liblibrary_sources})
+   ADD_LIBRARY(libexamplelibrary-static STATIC ${libexamplelibrary_sources})
 ENDIF()
 IF (WITH_SHARED_LIBRARIES)
-   ADD_LIBRARY(liblibrary-shared SHARED ${liblibrary_sources})
+   ADD_LIBRARY(libexamplelibrary-shared SHARED ${libexamplelibrary_sources})
 ENDIF()
 FOREACH(TYPE shared;static)
    IF ( (("${TYPE}" STREQUAL "static") AND (WITH_STATIC_LIBRARIES)) OR
         (("${TYPE}" STREQUAL "shared") AND (WITH_SHARED_LIBRARIES)) )
-      SET_TARGET_PROPERTIES(liblibrary-${TYPE} PROPERTIES OUTPUT_NAME example CLEAN_DIRECT_OUTPUT 1)
-      SET_TARGET_PROPERTIES(liblibrary-${TYPE} PROPERTIES
+      SET_TARGET_PROPERTIES(libexamplelibrary-${TYPE} PROPERTIES OUTPUT_NAME example CLEAN_DIRECT_OUTPUT 1)
+      SET_TARGET_PROPERTIES(libexamplelibrary-${TYPE} PROPERTIES
          VERSION   ${BUILD_VERSION}
          SOVERSION ${BUILD_MAJOR}
       )
-      # TARGET_LINK_LIBRARIES (liblibrary-${TYPE} ...)
-      INSTALL(TARGETS liblibrary-${TYPE} DESTINATION ${CMAKE_INSTALL_LIBDIR})
+      # TARGET_LINK_LIBRARIES (libexamplelibrary-${TYPE} ...)
+      INSTALL(TARGETS libexamplelibrary-${TYPE} DESTINATION ${CMAKE_INSTALL_LIBDIR})
    ENDIF()
 ENDFOREACH()
 
@@ -70,16 +70,22 @@ ELSE()
    SET(libraryType shared)
 ENDIF()
 
-# ====== Example ============================================================
-ADD_EXECUTABLE(example example.cc)
-TARGET_LINK_LIBRARIES(example liblibrary-${libraryType})
-INSTALL(TARGETS example RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
-INSTALL(FILES example.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1)
+# ====== Example Program 1 ==================================================
+ADD_EXECUTABLE(example-program1 example-program1.c)
+TARGET_LINK_LIBRARIES(example-program1 libexamplelibrary-${libraryType})
+INSTALL(TARGETS example-program1 RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+INSTALL(FILES example-program1.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1)
+
+# ====== Example Program 2 ==================================================
+ADD_EXECUTABLE(example-program2 example-program2.cc)
+TARGET_LINK_LIBRARIES(example-program2 libexamplelibrary-${libraryType})
+INSTALL(TARGETS example-program2 RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+INSTALL(FILES example-program2.1 DESTINATION ${CMAKE_INSTALL_MANDIR}/man1)
 
 
 #############################################################################
 #### EXAMPLES                                                            ####
 #############################################################################
 
-INSTALL(FILES example.txt
+INSTALL(FILES example-file.txt
         DESTINATION ${CMAKE_INSTALL_DATADIR}/doc/build-tools-template/examples)
