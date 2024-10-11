@@ -15,7 +15,6 @@ BuildRequires: gettext
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
 
 Requires: %{name}-libexamplelibrary = %{version}-%{release}
-Requires: %{name}-libexamplelibrary-devel = %{version}-%{release}
 Requires: %{name}-example-programs = %{version}-%{release}
 Requires: %{name}-example-scripts = %{version}-%{release}
 
@@ -32,6 +31,8 @@ This is a simple example program to be build and packaged by Build Tool.
 
 %install
 %cmake_install
+
+%files
 
 
 %package libexamplelibrary
@@ -59,7 +60,7 @@ Build Tool.
 This package provides header files for the library.
 
 %files libexamplelibrary-devel
-%{_includedir}/example/library.h
+%{_includedir}/example/example-library.h
 %{_libdir}/libexamplelibrary*.so
 %{_libdir}/libexamplelibrary.a
 
@@ -82,6 +83,7 @@ Build Tool.
 
 %package example-scripts
 Summary: Example library
+Requires: gettext-runtime
 Requires: %{name}-libexamplelibrary = %{version}-%{release}
 
 %description example-scripts
