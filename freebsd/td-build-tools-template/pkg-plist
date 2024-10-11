@@ -1,0 +1,5 @@
+usr/lib/*/libexample.so.*
+usr/include/example/library.h
+usr/lib/*/libexample*.so
+usr/lib/*/libexample.a
+usr/bin/example
