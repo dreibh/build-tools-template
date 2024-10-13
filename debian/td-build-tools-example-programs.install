@@ -1,2 +1,4 @@
 usr/bin/example-program1
 usr/bin/example-program2
+usr/share/locale/*/LC_MESSAGES/example-program1.mo
+usr/share/locale/*/LC_MESSAGES/example-program2.mo

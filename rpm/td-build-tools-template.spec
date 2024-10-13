@@ -76,6 +76,8 @@ Build Tool.
 %files example-programs
 %{_bindir}/example-program1
 %{_bindir}/example-program2
+%{_datadir}/locale/*/LC_MESSAGES/example-program1.1.gz
+%{_datadir}/locale/*/LC_MESSAGES/example-program2.1.gz
 %{_mandir}/man1/example-program1.1.gz
 %{_mandir}/man1/example-program2.1.gz
 %{_datadir}/doc/build-tools-template/examples/example-file1.txt
@@ -93,6 +95,8 @@ Build Tool.
 %files example-scripts
 %{_bindir}/example-script1
 %{_bindir}/example-script2
+%{_datadir}/locale/*/LC_MESSAGES/example-script1.1.gz
+%{_datadir}/locale/*/LC_MESSAGES/example-script2.1.gz
 %{_mandir}/man1/example-script1.1.gz
 %{_mandir}/man1/example-script2.1.gz
 %{_datadir}/doc/build-tools-template/examples/example-file2.jpeg

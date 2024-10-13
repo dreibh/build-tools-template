@@ -1,2 +1,4 @@
 usr/bin/example-script1
 usr/bin/example-script2
+usr/share/locale/*/LC_MESSAGES/example-script1.mo
+usr/share/locale/*/LC_MESSAGES/example-script2.mo
