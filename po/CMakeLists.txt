@@ -36,25 +36,24 @@ FOREACH(source IN LISTS sources)
 
    # ====== Create POT file (translation template) ==========================
    FILE(READ "${source}" potInputFiles)
-   STRING(REGEX REPLACE "\n" ";" potInputFiles "${potInputFiles}")
-   SET(LIST potInputFilesAbsolute "")
-   SET(potSourceLanguageOption "--language=Shell")   # Assume Shell scripts
+   STRING(REGEX REPLACE "[ \n]" ";" potInputFiles "${potInputFiles}")
+   SET(LIST potInputFilesForDependency "")
+   SET(potInputFilesForGetText "")
    FOREACH(file ${potInputFiles})
-      GET_FILENAME_COMPONENT(sourceExtension ${file} EXT)
-      # Source is C/C++ -> remove --language=Shell option!
-      IF ( ("${sourceExtension}" STREQUAL ".c")  OR
-           ("${sourceExtension}" STREQUAL ".h")  OR
-           ("${sourceExtension}" STREQUAL ".cc") OR
-           ("${sourceExtension}" STREQUAL ".cpp") )
-         SET(potSourceLanguageOption "")
+      GET_FILENAME_COMPONENT(fileName ${file} NAME)
+      IF (${fileName} MATCHES "^[-][-]")
+         # Option -> Just add it for gettext
+         SET(potInputFilesForGetText "${potInputFilesForGetText} F=${fileName}")
+      ELSE()
+         # File -> Add absolute file name
+         SET(potInputFilesForGetText "${potInputFilesForGetText} ${PROJECT_SOURCE_DIR}/${file}")
+         LIST(APPEND potInputFilesForDependency ${potInputFilesAbsolute} "${PROJECT_SOURCE_DIR}/${file}")
       ENDIF()
-      LIST(APPEND potInputFilesAbsolute ${potInputFilesAbsolute} "${PROJECT_SOURCE_DIR}/${file}")
    ENDFOREACH()
 
    MESSAGE("Translation template: ${textdomain} (${potInputFiles} -> ${potFile})")
    ADD_CUSTOM_COMMAND(OUTPUT "${potFile}"
                       COMMAND "${XGETTEXT}"
-                         ${potSourceLanguageOption}
                          --from-code=utf-8
                          --default-domain="${textdomain}"
                          --package-name="${PROJECT_NAME}"
@@ -66,7 +65,7 @@ FOREACH(source IN LISTS sources)
                          ${potInputFiles}
                        COMMAND sed -e "s/charset=CHARSET/charset=UTF-8/g" -i~ "${potFile}"
                        WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
-                       DEPENDS ${potInputFilesAbsolute} "${source}"
+                       DEPENDS ${potInputFilesForDependency} "${source}"
                        VERBATIM)
    SET(generate_PotFile "generate_pot_${textdomain}")
    ADD_CUSTOM_TARGET(${generate_PotFile} ALL DEPENDS "${potFile}")

@@ -1,1 +1,1 @@
-src/example-program1.c
+--language=C src/example-program1.c
