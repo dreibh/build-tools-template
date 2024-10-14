@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: debian:unstable
-      options: "--privileged"
+      options: --privileged
     steps:
       - uses: actions/checkout@v4
       - name: Packaging
@@ -66,7 +66,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: fedora:latest
-      options: "--privileged"
+      options: --privileged
     steps:
       - uses: actions/checkout@v4
       - name: Packaging
