@@ -3,6 +3,8 @@ Section: utils
 Priority: optional
 Maintainer: Thomas Dreibholz <thomas.dreibholz@gmail.com>
 Homepage: https://www.nntb.no/~dreibh/build-tools-template/
+Vcs-Git: https://github.com/dreibh/build-tools-template.git
+Vcs-Browser: https://github.com/dreibh/build-tools-template
 Build-Depends: cmake,
                debhelper (>= 12),
                gettext
