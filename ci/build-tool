@@ -1632,6 +1632,8 @@ def buildRPM(packageInfo, releases, architectures, skipPackageSigning, summaryFi
             commands = [
                   [ 'id' ],
                   [ 'mock', '-h' ],
+                  [ 'which', 'mock' ],
+                  [ 'strace', 'mock', '-h' ],
                   [ 'mock', '-r', configuration, '--isolation=auto', '--trace', '--init' ],
                   [ 'mock', '-r', configuration, '--isolation=auto', '--verbose', '--installdeps', srpmFile ],
                   [ 'mock', '-r', configuration, '--isolation=auto', '--verbose', '--rebuild', '--no-clean', srpmFile ]
