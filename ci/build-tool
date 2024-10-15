@@ -1630,7 +1630,9 @@ def buildRPM(packageInfo, releases, architectures, skipPackageSigning, summaryFi
             # NOTE: using old chroot instead of container, to allow running
             #       mock inside a container!
             commands = [
-                  [ 'mock', '-r', configuration, '--isolation=auto', '--verbose', '--init' ],
+                  [ 'id' ],
+                  [ 'mock', '-h' ],
+                  [ 'mock', '-r', configuration, '--isolation=auto', '--trace', '--init' ],
                   [ 'mock', '-r', configuration, '--isolation=auto', '--verbose', '--installdeps', srpmFile ],
                   [ 'mock', '-r', configuration, '--isolation=auto', '--verbose', '--rebuild', '--no-clean', srpmFile ]
                ]
