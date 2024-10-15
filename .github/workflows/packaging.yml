@@ -44,7 +44,7 @@ jobs:
     name: Debian Packaging
     runs-on: ubuntu-latest
     container:
-      image: debian:12
+      image: debian:unstable
       options: --privileged
     steps:
       - uses: actions/checkout@v4
