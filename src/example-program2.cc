@@ -17,7 +17,7 @@
 // Contact: thomas.dreibholz@gmail.com
 
 #include "example-library.h"
-#include "version.h"
+#include "package-version.h"
 
 #include <libintl.h>
 #include <string.h>

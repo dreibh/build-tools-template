@@ -16,7 +16,7 @@
 //
 // Contact: thomas.dreibholz@gmail.com
 
-#include "version.h"
+#include "package-version.h"
 
 #include <libintl.h>
 #include <locale.h>
