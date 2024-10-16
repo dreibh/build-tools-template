@@ -1631,7 +1631,6 @@ def buildRPM(packageInfo, releases, architectures, skipPackageSigning, summaryFi
             #       mock inside a container!
             commands = [
                   [ 'id' ],
-                  [ 'mock', '-h' ],
                   [ 'which', 'mock' ],
                   [ 'strace', 'mock', '-h' ],
                   [ 'mock', '-r', configuration, '--isolation=auto', '--trace', '--init' ],
