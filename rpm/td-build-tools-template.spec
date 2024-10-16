@@ -1,5 +1,5 @@
 Name: td-build-tools-template
-Version: 0.0.0~alpha1
+Version: 0.0.0~alpha2
 Release: 1
 Summary: Build tools example
 Group: Applications/System
@@ -76,6 +76,8 @@ Build Tool.
 %files example-programs
 %{_bindir}/example-program1
 %{_bindir}/example-program2
+%{_datadir}/bash-completion/completions/example-program1
+%{_datadir}/bash-completion/completions/example-program2
 %{_datadir}/locale/*/LC_MESSAGES/example-program1.mo
 %{_datadir}/locale/*/LC_MESSAGES/example-program2.mo
 %{_mandir}/man1/example-program1.1.gz
