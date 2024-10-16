@@ -72,16 +72,20 @@ ENDIF()
 # ====== Example Program 1 ==================================================
 ADD_EXECUTABLE(example-program1 example-program1.c)
 TARGET_LINK_LIBRARIES(example-program1 ${Intl_LIBRARIES})
-INSTALL(TARGETS example-program1               RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
-INSTALL(FILES example-program1.1               DESTINATION ${CMAKE_INSTALL_MANDIR}/man1)
-INSTALL(FILES example-program1.bash-completion DESTINATION ${CMAKE_INSTALL_DATADIR}/bash-completion/completions/example-program1)
+INSTALL(TARGETS     example-program1   RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+INSTALL(FILES       example-program1.1 DESTINATION         ${CMAKE_INSTALL_MANDIR}/man1)
+INSTALL(FILES       example-program1.bash-completion
+        DESTINATION ${CMAKE_INSTALL_DATADIR}/bash-completion/completions
+        RENAME      example-program1)
 
 # ====== Example Program 2 ==================================================
 ADD_EXECUTABLE(example-program2 example-program2.cc)
 TARGET_LINK_LIBRARIES(example-program2 libexamplelibrary-${libraryType} ${Intl_LIBRARIES})
-INSTALL(TARGETS example-program2               RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
-INSTALL(FILES example-program2.1               DESTINATION         ${CMAKE_INSTALL_MANDIR}/man1)
-INSTALL(FILES example-program2.bash-completion DESTINATION         ${CMAKE_INSTALL_DATADIR}/bash-completion/completions/example-program2)
+INSTALL(TARGETS     example-program2   RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
+INSTALL(FILES       example-program2.1 DESTINATION         ${CMAKE_INSTALL_MANDIR}/man1)
+INSTALL(FILES       example-program2.bash-completion
+        DESTINATION ${CMAKE_INSTALL_DATADIR}/bash-completion/completions
+        RENAME      example-program2)
 
 # ====== Example Script 1 ===================================================
 INSTALL(PROGRAMS example-script1 DESTINATION ${CMAKE_INSTALL_BINDIR})
