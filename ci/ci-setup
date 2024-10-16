@@ -167,7 +167,7 @@ EOF
 
 # ====== Fedora =============================================================
 elif [ "${ID}" == "fedora" ] ; then
-   PACKAGES="clang make python3 python3-distro redhat-lsb-core"
+   PACKAGES="clang make python3 python3-distro"
    if [ ${USE_PACKAGING} -eq 1 ] ; then
       # Need to install mock as well:
       PACKAGES="${PACKAGES} fedora-release findutils mock nosync rpmdevtools   which strace sudo"
@@ -206,8 +206,10 @@ elif [ "${ID}" == "fedora" ] ; then
 
 # ====== FreeBSD ============================================================
 elif [ "${ID}" == "freebsd" ] ; then
+   PACKAGES="autoconf automake bash gcc libtool git python3 py311-distro"
 
-   ASSUME_ALWAYS_YES=yes pkg install -y autoconf automake bash gcc libtool git python3
+   # shellcheck disable=SC2086
+   ASSUME_ALWAYS_YES=yes pkg install -y ${PACKAGES}
 
    if [ ! -e /usr/ports/.git ] ; then
       rm -rf /usr/ports/* /usr/ports/.??* || true
