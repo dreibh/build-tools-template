@@ -1613,7 +1613,7 @@ def buildRPM(packageInfo, releases, architectures, skipPackageSigning, summaryFi
          configuration = release + '-' + buildArchitecture
          if not os.path.isfile('/etc/mock/' + configuration + '.cfg'):
             sys.stderr.write('ERROR: Configuration ' + '/etc/mock/' + configuration + '.cfg does not exist!\n')
-            #sys.exit(1)
+            sys.exit(1)
 
          # ====== Delete old RPM ============================================
          rpmFile = '/var/lib/mock/' + configuration + '/result/' + \
