@@ -16,7 +16,8 @@
 #
 # Contact: thomas.dreibholz@gmail.com
 
-# ###### Bash completion of example-program2 ################################
+
+# ###### Bash completion for example-program2 ###############################
 _example_program2()
 {
    # Based on: https://www.benningtons.net/index.php/bash-completion/
