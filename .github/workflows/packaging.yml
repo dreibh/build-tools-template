@@ -42,7 +42,7 @@ jobs:
   # ====== Debian Linux =====================================================
   debian-packaging:
     name: Debian Packaging
-    runs-on: debian-unstable
+    runs-on: debian-latest
     container:
       image: debian:unstable
       options: --privileged
