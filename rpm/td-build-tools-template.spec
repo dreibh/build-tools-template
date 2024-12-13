@@ -1,5 +1,5 @@
 Name: td-build-tools-template
-Version: 0.0.0~alpha2
+Version: 0.0.0
 Release: 1
 Summary: Build tools example
 Group: Applications/System
@@ -105,5 +105,7 @@ Build Tool.
 
 
 %changelog
+* Fri Dec 13 2024 Thomas Dreibholz <thomas.dreibholz@gmail.com> - 0.0.0
+- New upstream release.
 * Mon Jun 17 2024 Thomas Dreibholz <dreibh@simula.no> - 0.0.0~alpha0
 - Created RPM package.
