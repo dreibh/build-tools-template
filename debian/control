@@ -6,7 +6,7 @@ Homepage: https://www.nntb.no/~dreibh/build-tools-template/
 Build-Depends: cmake,
                debhelper-compat (= 13),
                gettext
-Standards-Version: 4.7.0
+Standards-Version: 4.7.2
 Rules-Requires-Root: no
 
 Package: libexamplelibrary0

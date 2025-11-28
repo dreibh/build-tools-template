@@ -1,3 +1,105 @@
+commit 1066cc42a8a2ea0f58bd0a2699a1a71e31ceb7bc
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 28 15:43:06 2025 +0100
+
+    Packaging improvements.
+
+commit 4ad0d536458ec4ebe1b4c2dcc026772bca87289d
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 28 15:42:58 2025 +0100
+
+    Updated CI script.
+
+commit 1b2fd90b524bd14d6f67e38f20376607c5b89d34
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 28 15:03:21 2025 +0100
+
+    Packaging improvements.
+
+commit 5d9d5f673baadd0ccbeea25350955f49ab0bb299
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 28 14:57:40 2025 +0100
+
+    Updated CI scripts.
+
+commit 5ae35f005e38917f5a5d4f6bf39d954c59c426a3
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 28 14:47:26 2025 +0100
+
+    Header updates.
+
+commit 6086dc55fe0b5c488bcb2733c746663b77c362e3
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 28 11:11:35 2025 +0100
+
+    Updated script.
+
+commit 05232341dbca2bdf14e910134f9410e7de998561
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 28 10:48:04 2025 +0100
+
+    Workflow update.
+
+commit 7e550aba67a7ad96bf5a1607e54613f884519091
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Nov 28 10:18:11 2025 +0100
+
+    Updated CI script.
+
+commit d305e4e27e8a273c83e095d09fcee05a562c9327
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Nov 27 10:28:55 2025 +0100
+
+    Updated script.
+
+commit c2cc3798008b316a94b4b93745509a57cd34580e
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Mon Nov 24 15:09:59 2025 +0100
+
+    Updated script.
+
+commit 61cf9dee59fcf39604cf6f6abc0575eb52ecdf67
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Aug 13 13:22:50 2025 +0200
+
+    Using "ubuntu-rolling" for packaging CI workflow.
+
+commit 9308f47f43c9682ea92a6cc1ca4144db5cafdf98
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Wed Aug 13 13:04:43 2025 +0200
+
+    Workflow update.
+
+commit 17ef0b51ca8729d68b245b5072fe6925ac48af73
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Aug 12 13:17:10 2025 +0200
+
+    Updated Build-Tool.
+
+commit 519a9ed381a18531555ea8776e82e729e15af6b7
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Tue Aug 12 11:36:40 2025 +0200
+
+    Updated workflows.
+
+commit 17dadea532eae9c8ff3b50bfd966e1f96a88fd27
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Apr 3 10:04:44 2025 +0200
+
+    Header updates.
+
+commit 74e6d5d5fa1dd0855b2e5be53b3ebd495fd69dbd
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Feb 16 14:26:54 2025 +0100
+
+    Updated build tool.
+
+commit 3ae59937b7e36b2f45100eda5886032b0262fc33
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Fri Dec 13 21:34:34 2024 +0100
+
+    New release td-build-tools-template-0.0.0.
+
 commit 1cae8cbb82b4032c065ff03b03e07dd8758a1dfa
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Fri Dec 13 20:53:05 2024 +0100
