@@ -12,6 +12,7 @@ Rules-Requires-Root: no
 Package: libexamplelibrary0
 Section: libs
 Architecture: any
+Multi-Arch: same
 Depends: ${misc:Depends},
          ${shlibs:Depends}
 Description: Example library
@@ -23,6 +24,7 @@ Description: Example library
 Package: libexamplelibrary-dev
 Section: libdevel
 Architecture: any
+Multi-Arch: same
 Depends: libexamplelibrary0 (= ${binary:Version}),
          ${misc:Depends}
 Description: Development files for example library

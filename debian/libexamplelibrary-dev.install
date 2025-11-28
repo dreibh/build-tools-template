@@ -1,3 +1,3 @@
 usr/include/example/example-library.h
-usr/lib/*/libexamplelibrary*.so
-usr/lib/*/libexamplelibrary.a
+usr/lib/${DEB_HOST_MULTIARCH}/libexamplelibrary*.so
+usr/lib/${DEB_HOST_MULTIARCH}/libexamplelibrary.a

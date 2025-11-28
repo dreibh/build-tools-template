@@ -1,1 +1,1 @@
-usr/lib/*/libexamplelibrary.so.*
+usr/lib/${DEB_HOST_MULTIARCH}/libexamplelibrary.so.*
