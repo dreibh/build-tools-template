@@ -48,8 +48,8 @@ jobs:
     container:
       image: ${{ matrix.image }}
     steps:
-      # NOTE: actions/checkout@v4 does not work for old Ubuntu 18.04!
-      - uses: actions/checkout@v4
+      # NOTE: actions/checkout@v6 does not work for old Ubuntu 18.04!
+      - uses: actions/checkout@v6
       - name: Build
         shell: bash
         run: |
@@ -69,7 +69,13 @@ jobs:
           # ====== Fedora Linux =============================================
           - label: "Fedora 43: GCC/PPC64"
             arch: ppc64le
-            distro: fedora42
+            distro: fedora43
+            cc: gcc
+            cxx: g++
+          # ====== Fedora Linux =============================================
+          - label: "Fedora 43: GCC/RISC-V"
+            arch: riscv64
+            distro: fedora43
             cc: gcc
             cxx: g++
 
@@ -77,7 +83,7 @@ jobs:
     name: ${{ matrix.label }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       # NOTE: dreibh/run-on-arch-action provides the upstream
       #       uraimo/run-on-arch-action action, with additional dockerfiles
       #       needed for the builds here!
@@ -105,7 +111,7 @@ jobs:
       image: fedora:43
       options: --privileged --cap-add=SYS_ADMIN
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Packaging
         shell: bash
         run: |
