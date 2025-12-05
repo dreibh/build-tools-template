@@ -41,10 +41,10 @@ jobs:
             image: ubuntu:24.04
             cc: gcc
             cxx: g++
-          - label: "Ubuntu 22.04 (Jammy Jellyfish) with GCC"
-            image: ubuntu:22.04
-            cc: gcc
-            cxx: g++
+          # - label: "Ubuntu 22.04 (Jammy Jellyfish) with GCC"
+          #   image: ubuntu:22.04
+          #   cc: gcc
+          #   cxx: g++
 
     # ###### Build commands #################################################
     name: ${{ matrix.label }}
