@@ -37,11 +37,11 @@ jobs:
       matrix:
         include:
           # ====== FreeBSD ==================================================
-          # - label: "FreeBSD 15.0: Clang/x86_64"
+          # - label: "FreeBSD 15.0 with Clang/x86_64"
           #   release: 15.0
           #   cc: clang
           #   cxx: clang++
-          - label: "FreeBSD 14.3: Clang/x86_64"
+          - label: "FreeBSD 14.3 with Clang/x86_64"
             release: 14.3
             cc: clang
             cxx: clang++
@@ -73,12 +73,12 @@ jobs:
       matrix:
         include:
           # ====== FreeBSD ==================================================
-          - label: "FreeBSD 14.3: Clang/ARMv8"
+          - label: "FreeBSD 14.3 with Clang/ARMv8"
             release: 14.3
             architecture: aarch64
             cc: clang
             cxx: clang++
-          - label: "FreeBSD 14.3: Clang/RISC-V"
+          - label: "FreeBSD 14.3 with Clang/RISC-V"
             release: 14.3
             architecture: riscv64
             cc: clang
