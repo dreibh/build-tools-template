@@ -29,7 +29,7 @@ jobs:
   # #########################################################################
   # #### Build from Sources                                              ####
   # #########################################################################
-  build:
+  Build:
 
     # ###### Build matrix ###################################################
     strategy:
@@ -41,10 +41,10 @@ jobs:
             image: ubuntu:24.04
             cc: gcc
             cxx: g++
-          # - label: "Ubuntu 22.04 (Jammy Jellyfish) with GCC"
-          #   image: ubuntu:22.04
-          #   cc: gcc
-          #   cxx: g++
+          - label: "Ubuntu 22.04 (Jammy Jellyfish) with GCC"
+            image: ubuntu:22.04
+            cc: gcc
+            cxx: g++
 
     # ###### Build commands #################################################
     name: ${{ matrix.label }}
@@ -63,10 +63,9 @@ jobs:
 
 
   # #########################################################################
-  # #### Build Packages                                                  ####
+  # #### Multi-Architecture Builds                                       ####
   # #########################################################################
-  package:
-
+  Architectures:
     # ###### Build matrix ###################################################
     strategy:
       matrix:
@@ -106,3 +105,20 @@ jobs:
             CC=${{ matrix.cc }} CXX=${{ matrix.cxx }} ci/ci-setup   compile
             CC=${{ matrix.cc }} CXX=${{ matrix.cxx }} ci/ci-install compile
             CC=${{ matrix.cc }} CXX=${{ matrix.cxx }} ci/ci-build   compile
+
+
+  # #########################################################################
+  # #### Build Packages                                                  ####
+  # #########################################################################
+  Package:
+    name: Ubuntu Packaging
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Packaging
+        shell: bash
+        run: |
+          sudo CC=gcc CXX=g++ OS=ubuntu DIST=noble ARCH= ci/ci-setup   package
+          sudo CC=gcc CXX=g++ OS=ubuntu DIST=noble ARCH= ci/ci-install package
+          sudo CC=gcc CXX=g++ OS=ubuntu DIST=noble ARCH= ci/ci-build   package
+          sudo ci/ci-test
