@@ -22,7 +22,8 @@ on:
   push:
     branches:
       - master
-      - '**'
+      - main
+      - dreibh/github-actions
 
 jobs:
 
@@ -35,7 +36,6 @@ jobs:
     strategy:
       matrix:
         include:
-
           # ====== Fedora Linux =============================================
           - label: "Fedora 43 with Clang"
             image: fedora:43

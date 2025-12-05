@@ -22,7 +22,8 @@ on:
   push:
     branches:
       - master
-      - '**'
+      - main
+      - dreibh/github-actions
 
 jobs:
 
@@ -35,7 +36,6 @@ jobs:
     strategy:
       matrix:
         include:
-
           # ====== Ubuntu Linux =============================================
           - label: "Ubuntu 25.10 (Questing Quokka) with GCC"
             image: ubuntu:25.10

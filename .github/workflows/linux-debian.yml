@@ -22,7 +22,8 @@ on:
   push:
     branches:
       - master
-      - '**'
+      - main
+      - dreibh/github-actions
 
 jobs:
 
