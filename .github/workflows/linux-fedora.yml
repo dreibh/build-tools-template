@@ -67,17 +67,17 @@ jobs:
       matrix:
         include:
           # ====== Fedora Linux =============================================
-          - label: "Fedora 43: GCC/PPC64"
+          - label: "Fedora 43 with Clang/PPC64"
             arch: ppc64le
             distro: fedora43
-            cc: gcc
-            cxx: g++
+            cc: clang
+            cxx: clang++
           # ====== Fedora Linux =============================================
-          - label: "Fedora 43: GCC/RISC-V"
-            arch: riscv64
+          - label: "Fedora 43 with Clang/ARMv8"
+            arch: aarch64
             distro: fedora43
-            cc: gcc
-            cxx: g++
+            cc: clang
+            cxx: clang++
 
     # ###### Build commands #################################################
     name: ${{ matrix.label }}

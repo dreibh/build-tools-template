@@ -71,12 +71,12 @@ jobs:
       matrix:
         include:
           # ====== Debian Linux =============================================
-          - label: "Debian 13 (Trixie): GCC/i386"
+          - label: "Debian 13 (Trixie) with GCC/i386"
             arch: i386
             distro: trixie
             cc: gcc
             cxx: g++
-          - label: "Debian 13 (Trixie): Clang/ARMv7"
+          - label: "Debian 13 (Trixie) with Clang/ARMv7"
             arch: arm32v7
             distro: trixie
             cc: clang
