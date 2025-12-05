@@ -16,7 +16,7 @@
 #
 # Contact: dreibh@simula.no
 
-name: Ubuntu Linux CI Tests
+name: Debian Linux CI Tests
 
 on:
   push:
@@ -35,14 +35,13 @@ jobs:
     strategy:
       matrix:
         include:
-
-          # ====== Ubuntu Linux =============================================
-          - label: "Ubuntu 25.10 (Questing Quokka) with GCC"
-            image: ubuntu:25.10
+          # ====== Debian Linux =============================================
+          - label: "Debian 13 (Trixie) with GCC"
+            image: debian:trixie
             cc: gcc
             cxx: g++
-          - label: "Ubuntu 24.04 (Noble Numbat) with GCC"
-            image: ubuntu:24.04
+          - label: "Debian 12 (Bookworm) with GCC"
+            image: debian:bookworm
             cc: gcc
             cxx: g++
 
@@ -70,22 +69,17 @@ jobs:
     strategy:
       matrix:
         include:
-          # ====== Ubuntu Linux =============================================
-          - label: "Ubuntu 24.04 (Noble Numbat): Clang/ARMv8"
-            arch: aarch64
-            distro: ubuntu24.04
+          # ====== Debian Linux =============================================
+          - label: "Debian 13 (Trixie): GCC/i386"
+            arch: i386
+            distro: trixie
+            cc: gcc
+            cxx: g++
+          - label: "Debian 13 (Trixie): Clang/ARMv7"
+            arch: arm32v7
+            distro: trixie
             cc: clang
             cxx: clang++
-          - label: "Ubuntu 24.04 (Noble Numbat): GCC/S390x"
-            arch: s390x
-            distro: ubuntu24.04
-            cc: gcc
-            cxx: g++
-          - label: "Ubuntu 24.04 (Noble Numbat): GCC/RISC-V"
-            arch: riscv64
-            distro: ubuntu24.04
-            cc: gcc
-            cxx: g++
 
     # ###### Build commands #################################################
     name: ${{ matrix.label }}
@@ -111,14 +105,17 @@ jobs:
   # #### Build Packages                                                  ####
   # #########################################################################
   Package:
-    name: Ubuntu Packaging
+    name: Debian Packaging
     runs-on: ubuntu-latest
+    container:
+      image: debian:unstable
+      options: --privileged
     steps:
       - uses: actions/checkout@v4
       - name: Packaging
         shell: bash
         run: |
-          sudo CC=gcc CXX=g++ OS=ubuntu DIST=noble ARCH= ci/ci-setup   package
-          sudo CC=gcc CXX=g++ OS=ubuntu DIST=noble ARCH= ci/ci-install package
-          sudo CC=gcc CXX=g++ OS=ubuntu DIST=noble ARCH= ci/ci-build   package
-          sudo ci/ci-test
+          CC=gcc CXX=g++ OS=debian DIST=unstable ARCH= ci/ci-setup   package
+          CC=gcc CXX=g++ OS=debian DIST=unstable ARCH= ci/ci-install package
+          CC=gcc CXX=g++ OS=debian DIST=unstable ARCH= ci/ci-build   package
+          # ci/ci-test   <- Not running on Ubuntu!

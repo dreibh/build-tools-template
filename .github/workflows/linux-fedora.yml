@@ -16,7 +16,7 @@
 #
 # Contact: dreibh@simula.no
 
-name: Ubuntu Linux CI Tests
+name: Fedora Linux CI Tests
 
 on:
   push:
@@ -36,15 +36,11 @@ jobs:
       matrix:
         include:
 
-          # ====== Ubuntu Linux =============================================
-          - label: "Ubuntu 25.10 (Questing Quokka) with GCC"
-            image: ubuntu:25.10
-            cc: gcc
-            cxx: g++
-          - label: "Ubuntu 24.04 (Noble Numbat) with GCC"
-            image: ubuntu:24.04
-            cc: gcc
-            cxx: g++
+          # ====== Fedora Linux =============================================
+          - label: "Fedora 43 with Clang"
+            image: fedora:43
+            cc: clang
+            cxx: clang++
 
     # ###### Build commands #################################################
     name: ${{ matrix.label }}
@@ -70,20 +66,10 @@ jobs:
     strategy:
       matrix:
         include:
-          # ====== Ubuntu Linux =============================================
-          - label: "Ubuntu 24.04 (Noble Numbat): Clang/ARMv8"
-            arch: aarch64
-            distro: ubuntu24.04
-            cc: clang
-            cxx: clang++
-          - label: "Ubuntu 24.04 (Noble Numbat): GCC/S390x"
-            arch: s390x
-            distro: ubuntu24.04
-            cc: gcc
-            cxx: g++
-          - label: "Ubuntu 24.04 (Noble Numbat): GCC/RISC-V"
-            arch: riscv64
-            distro: ubuntu24.04
+          # ====== Fedora Linux =============================================
+          - label: "Fedora 43: GCC/PPC64"
+            arch: ppc64le
+            distro: fedora42
             cc: gcc
             cxx: g++
 
@@ -111,14 +97,19 @@ jobs:
   # #### Build Packages                                                  ####
   # #########################################################################
   Package:
-    name: Ubuntu Packaging
+    name: Fedora Packaging
     runs-on: ubuntu-latest
+    container:
+      # The GitHub runner issue with Mock seems to be fixed now:
+      # => https://github.com/rpm-software-management/mock/issues/1487
+      image: fedora:43
+      options: --privileged --cap-add=SYS_ADMIN
     steps:
       - uses: actions/checkout@v4
       - name: Packaging
         shell: bash
         run: |
-          sudo CC=gcc CXX=g++ OS=ubuntu DIST=noble ARCH= ci/ci-setup   package
-          sudo CC=gcc CXX=g++ OS=ubuntu DIST=noble ARCH= ci/ci-install package
-          sudo CC=gcc CXX=g++ OS=ubuntu DIST=noble ARCH= ci/ci-build   package
-          sudo ci/ci-test
+          CC=clang CXX=clang++ ARCH= ci/ci-setup   package
+          CC=clang CXX=clang++ ARCH= ci/ci-install package
+          CC=clang CXX=clang++ ARCH= ci/ci-build   package
+          ci/ci-test
