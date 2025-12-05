@@ -16,7 +16,7 @@
 #
 # Contact: dreibh@simula.no
 
-name: Linux CI Tests
+name: Debian Linux CI Tests
 
 on:
   push:
