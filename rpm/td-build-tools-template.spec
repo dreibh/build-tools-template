@@ -1,5 +1,5 @@
 Name: td-build-tools-template
-Version: 0.1.0
+Version: 0.1.1
 Release: 1
 Summary: Build tools example
 Group: Applications/System
@@ -105,6 +105,8 @@ Build Tool.
 
 
 %changelog
+* Tue Dec 09 2025 Thomas Dreibholz <thomas.dreibholz@gmail.com> - 0.1.1-1
+- New upstream release.
 * Fri Nov 28 2025 Thomas Dreibholz <thomas.dreibholz@gmail.com> - 0.1.0-1
 - New upstream release.
 * Fri Dec 13 2024 Thomas Dreibholz <thomas.dreibholz@gmail.com> - 0.0.0
