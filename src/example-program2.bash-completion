@@ -1,3 +1,4 @@
+# shellcheck shell=bash
 # Build Tool Template Example Program
 # Copyright (C) 2024-2026 by Thomas Dreibholz
 #
