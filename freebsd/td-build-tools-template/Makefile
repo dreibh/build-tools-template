@@ -1,5 +1,5 @@
 PORTNAME=	td-build-tools-template
-DISTVERSION=	0.1.1
+DISTVERSION=	0.1.2
 CATEGORIES=	devel
 MASTER_SITES=	https://www.nntb.no/~dreibh/build-tools/download/
 
