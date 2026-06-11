@@ -1,5 +1,5 @@
-# System-Tools
-# Copyright (C) 2013-2026 by Thomas Dreibholz
+# Build Tools Template
+# Copyright (C) 2024-2026 by Thomas Dreibholz
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@
 #############################################################################
 
 SET(copyrightHolder   "Copyright (C) 2013-2026 by Thomas Dreibholz")
-SET(bugTrackerAddress "https://github.com/dreibh/system-tools/issues")
+SET(bugTrackerAddress "https://github.com/dreibh/build-tools-template/issues")
 
 FILE(GLOB sources "*.sources")
 
@@ -37,16 +37,14 @@ FOREACH(source IN LISTS sources)
    # ====== Create POT file (translation template) ==========================
    FILE(READ "${source}" potInputFiles)
    STRING(REGEX REPLACE "[ \n]" ";" potInputFiles "${potInputFiles}")
+   # The input (in potInputFiles) contains file names and options
+   # (e.g. --language=C++). For the dependencies, just extract the list of
+   # files without the options:
    SET(LIST potInputFilesForDependency "")
-   SET(potInputFilesForGetText "")
    FOREACH(file ${potInputFiles})
       GET_FILENAME_COMPONENT(fileName ${file} NAME)
-      IF (${fileName} MATCHES "^[-][-]")
-         # Option -> Just add it for gettext
-         SET(potInputFilesForGetText "${potInputFilesForGetText} F=${fileName}")
-      ELSE()
+      IF (NOT fileName MATCHES "^[-][-]")
          # File -> Add absolute file name
-         SET(potInputFilesForGetText "${potInputFilesForGetText} ${PROJECT_SOURCE_DIR}/${file}")
          LIST(APPEND potInputFilesForDependency ${potInputFilesAbsolute} "${PROJECT_SOURCE_DIR}/${file}")
       ENDIF()
    ENDFOREACH()
@@ -60,6 +58,7 @@ FOREACH(source IN LISTS sources)
                          --package-version="${BUILD_VERSION}"
                          --copyright-holder="${copyrightHolder}"
                          --msgid-bugs-address="${bugTrackerAddress}"
+                         --no-wrap
                          -p "${CMAKE_CURRENT_SOURCE_DIR}"
                          -o "${potFile}"
                          ${potInputFiles}
@@ -86,6 +85,7 @@ FOREACH(source IN LISTS sources)
       ADD_CUSTOM_COMMAND(OUTPUT "${poStampFile}"
                          COMMAND "${MSGMERGE}"
                             --update "${poFile}" "${potFile}"
+                            --no-wrap
                          COMMAND touch "${poStampFile}"
                          WORKING_DIRECTORY "${PROJECT_SOURCE_DIR}"
                          DEPENDS ${generate_PotFile} "${potFile}")
