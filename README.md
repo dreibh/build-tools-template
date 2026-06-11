@@ -12,11 +12,11 @@
 Build-Tools Template is a template and example software package for [Build-Tools](https://www.nntb.no/~dreibh/build-tools/). It demonstrates:
 
 - Build system using on [CMake](https://cmake.org/);
-- Build of simple example programs in C and C++, including [GNU Gettext](https://en.wikipedia.org/wiki/Gettext)-based internationalisation and localisation (i18n and l10n) support;
+- Build of simple example programs in C and C++, including [GNU Gettext](https://www.gnu.org/software/gettext/)-based internationalisation and localisation (i18n and l10n) support;
 - Build of a simple example static/shared library;
-- A simple Bash shell script, including [GNU Gettext](https://en.wikipedia.org/wiki/Gettext) support;
-- A simple Python shell script, including [GNU Gettext](https://en.wikipedia.org/wiki/Gettext) support;
-- Build of [GNU Gettext](https://en.wikipedia.org/wiki/Gettext)-based translation files;
+- A simple Bash shell script, including [GNU Gettext](https://www.gnu.org/software/gettext/) support;
+- A simple Python shell script, including [GNU Gettext](https://www.gnu.org/software/gettext/) support;
+- Build of [GNU Gettext](https://www.gnu.org/software/gettext/)-based translation files;
 - Installation of executables, scripts, manpages, shell completions, translations and example files;
 - Debian/Ubuntu Linux packaging;
 - Fedora Linux packaging;
