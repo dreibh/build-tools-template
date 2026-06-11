@@ -35,7 +35,6 @@ INCLUDE(CheckCSourceCompiles)
 INCLUDE(CheckCSourceRuns)
 INCLUDE(CheckIncludeFile)
 INCLUDE(CheckStructHasMember)
-INCLUDE(CPack)
 INCLUDE(GNUInstallDirs)
 
 
@@ -55,6 +54,7 @@ LIST(APPEND CPACK_SOURCE_IGNORE_FILES "/package-version\\\\.h$")
 LIST(APPEND CPACK_SOURCE_IGNORE_FILES "/packaging\\\\.conf$")
 LIST(APPEND CPACK_SOURCE_IGNORE_FILES "^${PROJECT_SOURCE_DIR}/(po.*/|src.*/|)Makefile$")
 LIST(APPEND CPACK_SOURCE_IGNORE_FILES "^${PROJECT_SOURCE_DIR}/(po.*|src.*|[^/]*)\\\\.cmake$")
+INCLUDE(CPack)
 
 ADD_CUSTOM_TARGET(dist COMMAND ${CMAKE_MAKE_PROGRAM} clean package_source)
 
