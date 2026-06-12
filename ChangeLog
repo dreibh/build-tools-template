@@ -1,3 +1,51 @@
+commit 2b9f983eda46fddd30e3e96cace4f229b25ccfae
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Jun 11 18:29:03 2026 +0200
+
+    Updated build helper script.
+
+commit 1d00a47911ebb80cefceaefbcccc6ce95cd1cec6
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Jun 11 13:20:56 2026 +0200
+
+    Improved documentation.
+
+commit 2a92e667dced38e4f1567271234d01a9253a63b3
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Jun 11 11:32:12 2026 +0200
+
+    Improved CMakeLists.txt.
+
+commit 24a170b8bff38d092365fc00c81f1925731970d7
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Jun 11 11:07:48 2026 +0200
+
+    Improved CMakeLists.txt.
+
+commit a2677236ca7708259e2acc5ab3ed3a0f3a0b37ee
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Thu Jun 11 11:03:25 2026 +0200
+
+    Improved CMakeLists.txt.
+
+commit bf026c71a574894c3634e977995d628ce4c4f035
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Apr 26 21:29:31 2026 +0200
+
+    Another try.
+
+commit 5339213abec659c0ab091e3914387605b17e226e
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sun Apr 26 21:15:41 2026 +0200
+
+    Updated workflows.
+
+commit 3f2cc103e108a76e2ce69cba22a7f9f963911792
+Author: Thomas Dreibholz <dreibh@simula.no>
+Date:   Sat Apr 25 19:54:52 2026 +0200
+
+    New release td-build-tools-template-0.1.2.
+
 commit d012466068a0d5deb2c64e0fb0816ac7a702d84c
 Author: Thomas Dreibholz <dreibh@simula.no>
 Date:   Sat Apr 25 18:01:26 2026 +0200
