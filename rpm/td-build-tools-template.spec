@@ -109,6 +109,7 @@ Build Tool.
 
 %package example-scripts
 Summary: Example library
+BuildArch: noarch
 Requires: gettext-runtime
 Requires: %{name}-libexamplelibrary = %{version}-%{release}
 
