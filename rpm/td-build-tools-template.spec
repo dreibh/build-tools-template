@@ -33,6 +33,10 @@ export LDFLAGS="%{build_ldflags}"
 
 %install
 %cmake_install
+%find_lang example-program1
+%find_lang example-program2
+%find_lang example-script1
+%find_lang example-script2
 
 # Apply shebang fix for Bash and Rscript:
 for directory in %{_bindir} ; do
@@ -43,7 +47,7 @@ for directory in %{_bindir} ; do
       {} +
 done
 
-%files
+%files -f example-program1.lang -f example-program2.lang -f example-script1.lang -f example-script2.lang
 
 
 %package libexamplelibrary
@@ -96,8 +100,6 @@ Build Tool.
 %{_bindir}/example-program2
 %{_datadir}/bash-completion/completions/example-program1
 %{_datadir}/bash-completion/completions/example-program2
-%{_datadir}/locale/*/LC_MESSAGES/example-program1.mo
-%{_datadir}/locale/*/LC_MESSAGES/example-program2.mo
 %{_mandir}/man1/example-program1.1.gz
 %{_mandir}/man1/example-program2.1.gz
 %dir %attr(0755, root, root) %{_datadir}/doc/build-tools-template
@@ -117,8 +119,6 @@ Build Tool.
 %files example-scripts
 %{_bindir}/example-script1
 %{_bindir}/example-script2
-%{_datadir}/locale/*/LC_MESSAGES/example-script1.mo
-%{_datadir}/locale/*/LC_MESSAGES/example-script2.mo
 %{_mandir}/man1/example-script1.1.gz
 %{_mandir}/man1/example-script2.1.gz
 %dir %attr(0755, root, root) %{_datadir}/doc/build-tools-template
